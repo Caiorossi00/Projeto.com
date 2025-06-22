@@ -1,0 +1,58 @@
+@use "../../variables.scss" as *;
+
+.available-projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-list {
+  display: flex;
+  letter-spacing: -1px;
+  width: 95%;
+  margin: 0 auto;
+  gap: 1em;
+}
+
+.project-card {
+  padding: 2em 2em;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(0, 0, 0);
+  border-bottom: 4px solid rgb(0, 0, 0);
+  justify-content: space-around;
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h2 {
+      font-family: $font-secondary;
+      font-size: 2em;
+      width: 60%;
+    }
+
+    p {
+      font-style: italic;
+      color: rgb(59, 59, 59);
+    }
+  }
+
+  .project-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+  }
+}

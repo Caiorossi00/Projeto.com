@@ -1,10 +1,10 @@
-$color-bg: #000000;
+$color-bg: #ffffff;
 $color-bg-detail: #c69466;
-$color-text-primary: #ffffff;
-$color-text-secondary: #000000;
+$color-text-primary: #000000;
+$color-text-secondary: #ffffff;
 
-$font-primary: "Lora", serif;
-$font-secondary: "Inter", sans-serif;
+$font-primary: "Inter", serif;
+$font-secondary: "Oswald", sans-serif;
 
 body {
   background-color: $color-bg;
@@ -12,4 +12,5 @@ body {
   font-family: $font-primary;
   margin: 0;
   padding: 0;
+  letter-spacing: -1px;
 }
