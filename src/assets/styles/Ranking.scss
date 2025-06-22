@@ -1,0 +1,195 @@
+.ranking-layout {
+  display: flex;
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+}
+
+.main-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-performer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-bottom: 1px solid #000000;
+  width: 90%;
+  margin: 0 auto;
+
+  .top-performer-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    .star {
+      font-size: 24px;
+    }
+
+    .title {
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+  }
+
+  .top-performer-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .performer-image {
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+        border: 4px solid #a1a1a1;
+      }
+    }
+
+    .performer-info {
+      .performer-name {
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: -3px;
+      }
+
+      .performer-title {
+        font-size: 18px;
+        color: #666666;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .performer-score {
+      font-size: 22px;
+      font-weight: bold;
+      border: 2px solid #000000;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+  }
+}
+
+.rankings {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 20px;
+
+  .ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #d6d6d6;
+      cursor: pointer;
+    }
+
+    .ranking-position {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .participant-image {
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 1px solid #000000;
+      }
+    }
+
+    .participant-info {
+      flex: 1;
+
+      .participant-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .participant-name {
+          font-size: 22px;
+          font-weight: bold;
+          color: #000000;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .participant-title {
+          font-size: 16px;
+          color: #666666;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .participant-score {
+      font-size: 28px;
+      font-weight: bold;
+      min-width: 50px;
+      text-align: right;
+      border: 2px solid #000000;
+      padding: 8px 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ranking-layout {
+    flex-direction: column;
+  }
+
+  .top-performer-section {
+    padding: 25px;
+
+    .top-performer-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 25px;
+
+      .performer-image img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .performer-info .performer-name {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .rankings {
+    padding: 25px;
+
+    .ranking-item {
+      .ranking-position {
+        width: 50px;
+        font-size: 20px;
+      }
+
+      .participant-image img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .participant-info .participant-main .participant-name {
+        font-size: 18px;
+      }
+
+      .participant-score {
+        font-size: 20px;
+        min-width: 80px;
+      }
+    }
+  }
+}

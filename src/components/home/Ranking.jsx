@@ -1,24 +1,78 @@
-import React from "react";
-
-const rankingData = [
-  { id: 1, name: "Joana Silva", projectsCompleted: 8 },
-  { id: 2, name: "Pedro Alves", projectsCompleted: 6 },
-  { id: 3, name: "Ana Costa", projectsCompleted: 5 },
-  { id: 4, name: "Lucas Pereira", projectsCompleted: 4 },
-  { id: 5, name: "Mariana Souza", projectsCompleted: 3 },
-];
+"use client";
+import { Link } from "react-router-dom";
+import "../../assets/styles/Ranking.scss";
+import participants from "../../data/participants.js";
 
 export default function Ranking() {
+  const sortedParticipants = [...participants].sort(
+    (a, b) => b.projectsDelivered.length - a.projectsDelivered.length
+  );
+
+  const topPerformer = sortedParticipants[0];
+  const rankedParticipants = sortedParticipants.slice(1);
+
   return (
-    <section>
-      <h2>Ranking dos Participantes</h2>
-      <ol>
-        {rankingData.map(({ id, name, projectsCompleted }) => (
-          <li key={id}>
-            {name} — Projetos entregues: {projectsCompleted}
-          </li>
-        ))}
-      </ol>
-    </section>
+    <div className="ranking-layout" id="ranking">
+      <div className="main-content">
+        <div className="top-performer-section">
+          <div className="top-performer-badge">
+            <span className="star">★</span>
+            <span className="title">MELHORES DO ANO</span>
+          </div>
+
+          <div className="top-performer-card">
+            <div className="performer-image">
+              <img
+                src={topPerformer.avatar || "/placeholder.svg"}
+                alt={topPerformer.name}
+              />
+            </div>
+
+            <div className="performer-info">
+              <h1 className="performer-name">{topPerformer.name}</h1>
+              <div className="performer-title">{topPerformer.title}</div>
+              <div className="performer-stats">
+                <span>{topPerformer.experience}</span>
+                <span>{topPerformer.location}</span>
+              </div>
+              <div className="performer-score">
+                {topPerformer.projectsDelivered.length} Projetos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="rankings">
+          {rankedParticipants.map((participant, index) => (
+            <div key={participant.id} className="ranking-item">
+              <div className="ranking-position">#{index + 1}</div>
+
+              <div className="participant-image">
+                <img
+                  src={participant.avatar || "/placeholder.svg"}
+                  alt={participant.name}
+                />
+              </div>
+
+              <div className="participant-info">
+                <div className="participant-main">
+                  <Link
+                    href={`/participant/${participant.id}`}
+                    className="participant-name"
+                  >
+                    {participant.name}
+                  </Link>
+                  <span className="participant-title">{participant.title}</span>
+                </div>
+              </div>
+
+              <div className="participant-score">
+                {participant.projectsDelivered.length}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
