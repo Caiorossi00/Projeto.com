@@ -1,46 +1,32 @@
 import React from "react";
+import "../../assets/styles/About.scss";
 
-export default function ComoFunciona() {
-  const passos = [
-    {
-      numero: 1,
-      titulo: "Escolha um desafio",
-      descricao:
-        "Acesse a lista de projetos disponíveis e escolha um que combine com seu nível e interesse.",
-    },
-    {
-      numero: 2,
-      titulo: "Monte seu grupo",
-      descricao:
-        "Forme uma equipe com até 3 pessoas. Se preferir, faça sozinho.",
-    },
-    {
-      numero: 3,
-      titulo: "Crie, documente e entregue",
-      descricao:
-        "Implemente o projeto com base nas boas práticas e siga as etapas de documentação e deploy.",
-    },
-    {
-      numero: 4,
-      titulo: "Ganhe seu lugar no projeto.com",
-      descricao:
-        "Seus projetos entregues e seu perfil serão exibidos publicamente como prova prática do seu progresso.",
-    },
-  ];
-
+const About = () => {
   return (
-    <section id="sobre">
-      <h2>Como funciona</h2>
-      <ul>
-        {passos.map((passo) => (
-          <li key={passo.numero}>
-            <h3>
-              {passo.numero}. {passo.titulo}
-            </h3>
-            <p>{passo.descricao}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div id="sobre" className="about">
+      <div className="about-headline">
+        <h1>Sobre</h1>
+      </div>
+      <div className="about-content">
+        <p>
+          Aprender a programar é só parte do processo. Desenvolver em equipe,
+          lidar com entregas, expor seu código ao olhar de outras pessoas — nada
+          disso se aprende sozinho, nem apenas assistindo aulas.
+        </p>
+        <p>
+          Este projeto nasce para preencher esse espaço entre o conhecimento
+          técnico e a vivência prática. Aqui, você codifica, mas também
+          compartilha. Trabalha com outras pessoas, se organiza em equipe e vê
+          suas entregas ganharem forma pública.
+        </p>
+        <p>
+          Tudo o que você desenvolve aparece aqui com o seu nome. Cada projeto
+          entregue é uma linha a mais na sua jornada — visível, concreta e
+          colaborativa.
+        </p>
+      </div>
+    </div>
   );
-}
+};
+
+export default About;
