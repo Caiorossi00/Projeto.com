@@ -1,0 +1,15 @@
+$color-bg: #000000;
+$color-bg-detail: #c69466;
+$color-text-primary: #ffffff;
+$color-text-secondary: #000000;
+
+$font-primary: "Lora", serif;
+$font-secondary: "Inter", sans-serif;
+
+body {
+  background-color: $color-bg;
+  color: $color-text-primary;
+  font-family: $font-primary;
+  margin: 0;
+  padding: 0;
+}
