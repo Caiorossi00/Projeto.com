@@ -1,0 +1,37 @@
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 95vh;
+  justify-content: space-between;
+  margin: 0 10%;
+
+  .hero-left {
+    border-top: 1px solid black;
+    font-size: larger;
+    margin-top: 40vh;
+
+    ul {
+      margin-top: 2vh;
+
+      li {
+        a {
+          color: inherit;
+          color: rgb(95, 95, 95);
+          text-decoration: none;
+          transition: font-weight 0.2s ease, font-style 0.9s ease;
+
+          &:hover {
+            font-weight: 700;
+            font-style: italic;
+            cursor: pointer;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  .hero-right {
+    font-size: 1.1em;
+  }
+}

@@ -29,7 +29,7 @@ export default function ComoFunciona() {
   ];
 
   return (
-    <section>
+    <section id="sobre">
       <h2>Como funciona</h2>
       <ul>
         {passos.map((passo) => (

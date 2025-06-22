@@ -1,24 +1,28 @@
 @use "../../variables.scss" as *;
 
 nav {
-  background-color: #000000;
-  padding: 1.4rem 2rem;
+  padding: 1rem 1rem;
   font-family: $font-secondary;
+  border-bottom: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
 
   ul {
     list-style: none;
     display: flex;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   li {
     a {
-      color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
       transition: color 0.3s ease;
+      color: black;
     }
   }
 }

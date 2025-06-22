@@ -1,10 +1,14 @@
-$color-bg: #ffffff;
+$color-bg: #efefef;
 $color-bg-detail: #c69466;
 $color-text-primary: #000000;
 $color-text-secondary: #ffffff;
 
-$font-primary: "Inter", serif;
-$font-secondary: "Oswald", sans-serif;
+$font-primary: "Space Grotesk", sans-serif;
+$font-secondary: "Inter", sans-serif;
+
+* {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: $color-bg;
@@ -12,5 +16,5 @@ body {
   font-family: $font-primary;
   margin: 0;
   padding: 0;
-  letter-spacing: -1px;
+  letter-spacing: -1.3px;
 }
