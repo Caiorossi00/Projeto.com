@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import projects from "../../data/projects";
 
 export default function ProjectList() {
@@ -12,7 +13,7 @@ export default function ProjectList() {
           <p>Categoria: {project.category}</p>
           <p>Tecnologias: {project.technologies.join(", ")}</p>
           <p>Entregas: {project.submissions} grupo(s)</p>
-          <a href={`/projetos/${project.id}`}>Ver projeto →</a>
+          <Link to={`/projetos/${project.id}`}>Ver projeto →</Link>
           <hr />
         </div>
       ))}
