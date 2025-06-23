@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import participants from "../data/participants";
 import deliveredProjects from "../data/deliveredProjects";
 import projects from "../data/projects";
 
 export default function DevProfile() {
   const { id } = useParams();
-  const dev = participants.find((p) => p.id === id);
+  const [dev, setDev] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  if (!dev) {
-    return (
-      <main>
-        <p>Desenvolvedor não encontrado.</p>
-      </main>
-    );
-  }
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDev(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar usuário:", err);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) return <p>Carregando...</p>;
+  if (!dev || dev.error) return <p>Desenvolvedor não encontrado.</p>;
 
   const devProjects = [];
-
   deliveredProjects.forEach((project) => {
     project.groups.forEach((group) => {
       if (group.members.includes(id)) {
@@ -41,13 +48,13 @@ export default function DevProfile() {
       {dev.avatar && <img src={dev.avatar} alt={dev.name} width={120} />}
       <p>
         <strong>GitHub:</strong>{" "}
-        <a href={dev.github} target="_blank">
+        <a href={dev.github} target="_blank" rel="noopener noreferrer">
           {dev.github}
         </a>
       </p>
       <p>
         <strong>LinkedIn:</strong>{" "}
-        <a href={dev.linkedin} target="_blank">
+        <a href={dev.linkedin} target="_blank" rel="noopener noreferrer">
           {dev.linkedin}
         </a>
       </p>
@@ -59,11 +66,11 @@ export default function DevProfile() {
             <li key={proj.groupId}>
               <strong>{proj.projectName}</strong> – {proj.date}
               <br />
-              <a href={proj.github} target="_blank">
+              <a href={proj.github} target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>{" "}
               |{" "}
-              <a href={proj.deploy} target="_blank">
+              <a href={proj.deploy} target="_blank" rel="noopener noreferrer">
                 Deploy
               </a>
             </li>
