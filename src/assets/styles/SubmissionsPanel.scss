@@ -1,0 +1,61 @@
+main {
+  padding: 20px;
+  font-family: inherit;
+
+  h1 {
+    margin-bottom: 20px;
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+    background-color: rgb(255, 255, 255);
+
+    thead {
+      background-color: #000;
+      color: #fff;
+
+      th {
+        padding: 10px;
+        border: 1px solid #696969;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          padding: 10px;
+          border: 1px solid #000;
+        }
+
+        select {
+          border: 1px solid #000;
+          background-color: #fff;
+          color: #000;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+            border-color: #000;
+            box-shadow: none;
+          }
+        }
+      }
+
+      .status-waiting {
+        background-color: #ffe5e5;
+      }
+
+      .status-grouped {
+        background-color: #fffbe5;
+      }
+
+      .status-completed {
+        background-color: #e5ffe5;
+      }
+    }
+  }
+}

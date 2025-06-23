@@ -6,6 +6,7 @@ import ProjectDetails from "./routes/ProjectDetails";
 import DeliveredProjects from "./routes/DeliveredProjects";
 import DevProfile from "./routes/DevProfile";
 import Footer from "./components/Footer";
+import AdminPage from "./components/admin/AdminPanel";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/projetos/:id" element={<ProjectDetails />} />
         <Route path="/entregas" element={<DeliveredProjects />} />
         <Route path="/dev/:id" element={<DevProfile />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

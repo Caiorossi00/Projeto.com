@@ -82,7 +82,7 @@ export default function AvailableProjects() {
                 setShowModal(true);
               }}
             >
-              Aplicar ao projeto
+              Buscar uma equipef
             </button>
           </div>
         ))}

@@ -1,0 +1,29 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.admin-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 4vh;
+
+  button {
+    padding: 15px 60px;
+    margin-right: 10px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: -1px;
+
+    &.active {
+      background: #000;
+      color: #fff;
+    }
+  }
+}
