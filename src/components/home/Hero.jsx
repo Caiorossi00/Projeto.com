@@ -16,7 +16,7 @@ const Hero = () => {
             <a href="#entre-em-um-time">Entre em um time</a>
           </li>
           <li>
-            <a href="#projetos-entregues">Projetos Entregues</a>
+            <a href="#projetos-entregues">Entregar um projeto</a>
           </li>
           <li>
             <a href="#feedback">Feedback dos Participantes</a>

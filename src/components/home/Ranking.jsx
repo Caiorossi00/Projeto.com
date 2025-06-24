@@ -17,7 +17,8 @@ export default function Ranking() {
         <div className="top-performer-section">
           <div className="top-performer-badge">
             <span className="star">★</span>
-            <span className="title">MELHORES DO ANO</span>
+            <span className="title">DEV DO MÊS</span>
+            <span className="star">★</span>
           </div>
 
           <div className="top-performer-card">
@@ -67,7 +68,7 @@ export default function Ranking() {
               </div>
 
               <div className="participant-score">
-                {participant.projectsDelivered.length}
+                {participant.projectsDelivered.length} Projetos
               </div>
             </div>
           ))}
