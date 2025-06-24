@@ -1,6 +1,6 @@
 .ranking-layout {
   display: flex;
-  padding-top: 5vh;
+  padding-top: 2vh;
   padding-bottom: 10vh;
 }
 
@@ -38,7 +38,6 @@
   .top-performer-card {
     display: flex;
     align-items: center;
-    gap: 20px;
 
     .performer-image {
       img {
@@ -65,6 +64,7 @@
       border: 1px solid #000000;
       padding: 7px 20px;
       margin-top: 10px;
+      margin-bottom: 0.6em;
     }
   }
 }

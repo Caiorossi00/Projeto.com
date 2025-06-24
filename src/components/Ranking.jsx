@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "react-router-dom";
-import "../../assets/styles/Ranking.scss";
-import participants from "../../data/participants.js";
+import participants from "../data/participants.js";
+import "../assets/styles/Ranking.scss";
 
 export default function Ranking() {
   const sortedParticipants = [...participants].sort(

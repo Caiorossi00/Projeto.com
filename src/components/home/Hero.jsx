@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../assets/styles/Hero.scss";
 
 const Hero = () => {
@@ -10,13 +11,13 @@ const Hero = () => {
             <a href="#sobre">Sobre</a>
           </li>
           <li>
-            <a href="#ranking">Ranking</a>
+            <Link to="/rankings">Ranking</Link>
           </li>
           <li>
-            <a href="#entre-em-um-time">Entre em um time</a>
+            <Link to="/projetos">Entre em um time</Link>
           </li>
           <li>
-            <a href="#projetos-entregues">Entregar um projeto</a>
+            <Link to="/entregas">Entregar um projeto</Link>
           </li>
           <li>
             <a href="#feedback">Feedback dos Participantes</a>
@@ -38,10 +39,10 @@ const Hero = () => {
       <div className="hero-right">
         <ul>
           <li>
-            <a href="#sobre">To be</a>
+            <Link to="/">To be</Link>
           </li>
           <li>
-            <a href="#ranking">Done</a>
+            <Link to="/ranking">Done</Link>
           </li>
           <li></li>
         </ul>

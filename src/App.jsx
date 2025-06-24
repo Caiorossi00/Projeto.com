@@ -7,6 +7,7 @@ import DeliveredProjects from "./routes/DeliveredProjects";
 import DevProfile from "./routes/DevProfile";
 import Footer from "./components/Footer";
 import AdminPage from "./components/admin/AdminPanel";
+import Ranking from "./components/Ranking";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/rankings" element={<Ranking />} />
         <Route path="/projetos" element={<AvailableProjects />} />
         <Route path="/projetos/:id" element={<ProjectDetails />} />
         <Route path="/entregas" element={<DeliveredProjects />} />

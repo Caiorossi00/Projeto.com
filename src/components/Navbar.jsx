@@ -13,14 +13,14 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
         )}
-        {location.pathname !== "/entregas" && (
-          <li>
-            <Link to="/entregas">Projetos entregues</Link>
-          </li>
-        )}
         {location.pathname !== "/projetos" && (
           <li>
             <Link to="/projetos">Entrar em um time</Link>
+          </li>
+        )}
+        {location.pathname !== "/rankings" && (
+          <li>
+            <Link to="/rankings">Rankings</Link>
           </li>
         )}
       </ul>
