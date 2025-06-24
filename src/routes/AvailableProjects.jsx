@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../assets/styles/AvailableProjects.scss";
+import SubmissionModal from "../components/admin/SubmissionModal";
 
 export default function AvailableProjects() {
   const [projects, setProjects] = useState([]);
@@ -16,7 +17,10 @@ export default function AvailableProjects() {
     fetch("http://localhost:5000/projects")
       .then((res) => res.json())
       .then((data) => {
-        setProjects(data);
+        const sorted = data.sort(
+          (a, b) => (b.waitingCount || 0) - (a.waitingCount || 0)
+        );
+        setProjects(sorted);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -49,7 +53,6 @@ export default function AvailableProjects() {
       }
       const data = await res.json();
       alert("Submissão enviada com sucesso!");
-      console.log(data);
       setShowModal(false);
       setForm({ name: "", email: "", whatsapp: "" });
     } catch (error) {
@@ -66,15 +69,44 @@ export default function AvailableProjects() {
         {projects.map((project) => (
           <div key={project._id} className="project-card">
             <div className="project-info">
-              <h2>{project.name}</h2>
+              <h2 className="project-title">
+                {project.name}{" "}
+                {project.waitingCount > 3 && (
+                  <span
+                    className="hot-fire"
+                    role="img"
+                    aria-label="hot project"
+                  >
+                    🔥
+                  </span>
+                )}
+              </h2>
               <p>{project.description}</p>
             </div>
+
             <div className="project-tags">
-              <p>Dificuldade: {"⭐".repeat(project.difficulty)}</p>
+              <p className="difficulty-tag">
+                Dificuldade: {" ⭐".repeat(project.difficulty)}
+              </p>
               <p>Categoria: {project.category}</p>
               <p>Tecnologias: {project.technologies.join(", ")}</p>
-              <p>Entregas: {project.submissions} grupo(s)</p>
             </div>
+
+            <div className="waiting-counter">
+              {project.waitingCount > 0 ? (
+                <>
+                  <span className="pulse-dot" />
+                  <p style={{ color: "green" }}>
+                    {project.waitingCount}{" "}
+                    {project.waitingCount === 1 ? "pessoa" : "pessoas"}{" "}
+                    procurando equipe
+                  </p>
+                </>
+              ) : (
+                <p style={{ color: "red" }}>Ninguém procurando par</p>
+              )}
+            </div>
+
             <button
               className="btn"
               onClick={() => {
@@ -82,55 +114,19 @@ export default function AvailableProjects() {
                 setShowModal(true);
               }}
             >
-              Buscar uma equipef
+              Entrar em uma equipe
             </button>
           </div>
         ))}
       </div>
 
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <h2>Aplicar ao projeto</h2>
-            <form onSubmit={handleSubmit}>
-              <label>
-                Nome completo:
-                <input
-                  type="text"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  required
-                />
-              </label>
-              <label>
-                Email:
-                <input
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  required
-                />
-              </label>
-              <label>
-                WhatsApp:
-                <input
-                  type="text"
-                  value={form.whatsapp}
-                  onChange={(e) =>
-                    setForm({ ...form, whatsapp: e.target.value })
-                  }
-                  required
-                />
-              </label>
-              <div className="modal-actions">
-                <button type="submit">Enviar</button>
-                <button type="button" onClick={() => setShowModal(false)}>
-                  Cancelar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <SubmissionModal
+          form={form}
+          setForm={setForm}
+          onSubmit={handleSubmit}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </main>
   );
